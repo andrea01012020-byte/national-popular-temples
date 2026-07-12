@@ -2,25 +2,107 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
 <title>全國熱門宮廟</title>
+<meta name="description" content="全國熱門宮廟互動式Q版地圖，點選宮廟即可前往官方網站。">
 <meta property="og:title" content="全國熱門宮廟">
-<meta property="og:description" content="點選宮廟即可前往官方網站">
+<meta property="og:description" content="台灣熱門宮廟互動式Q版地圖">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://andrea01012020-byte.github.io/national-popular-temples/">
 <meta property="og:image" content="https://andrea01012020-byte.github.io/national-popular-temples/preview.png">
+<meta name="twitter:card" content="summary_large_image">
 <style>
 *{box-sizing:border-box}
-html,body{margin:0;background:#eee}
-.wrap{position:relative;max-width:900px;width:100%;margin:auto}
-img{display:block;width:100%;height:auto}
-a{position:absolute;display:block;border-radius:12px}
-a:hover,a:focus{outline:4px solid #ffd700;background:rgba(255,215,0,.20)}
+html,body{margin:0;background:#eee;font-family:Arial,"Microsoft JhengHei",sans-serif}
+.wrap{position:relative;max-width:900px;width:100%;margin:auto;overflow:hidden}
+.map{display:block;width:100%;height:auto}
+.hotspot{position:absolute;border:0;background:transparent;border-radius:14px;cursor:pointer;touch-action:manipulation}
+.hotspot:hover,.hotspot:focus-visible{outline:4px solid #ffd700;background:rgba(255,215,0,.18)}
+.hotspot.flash{animation:flash .48s ease}
+@keyframes flash{0%{background:rgba(255,215,0,.10)}50%{background:rgba(255,215,0,.55);box-shadow:0 0 25px #ffd700}100%{background:transparent}}
+.tip{position:fixed;z-index:30;display:none;pointer-events:none;background:rgba(65,28,12,.95);color:#fff;padding:12px 15px;border:2px solid #f6c453;border-radius:13px;box-shadow:0 8px 28px rgba(0,0,0,.28);font-size:18px;line-height:1.5}
+.tip strong{display:block;color:#ffe08b;font-size:21px}
+.music{position:fixed;right:16px;top:16px;z-index:50;border:2px solid #f4ca63;border-radius:999px;background:rgba(118,24,15,.94);color:#fff;padding:11px 16px;font-size:18px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+.music:hover{filter:brightness(1.1)}
+@media(max-width:640px){
+ .music{right:10px;top:10px;font-size:17px;padding:10px 13px}
+ .tip{font-size:17px}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-<img src="preview.png" alt="全國熱門宮廟互動式Q版地圖">
-<a href="https://luermen.org.tw" target="_blank" rel="noopener" title="正統鹿耳門聖母廟" aria-label="正統鹿耳門聖母廟" style="left:8%;top:15.5614%;width:24%;height:8.8922%"></a><a href="https://www.matsu.org.tw" target="_blank" rel="noopener" title="北港朝天宮" aria-label="北港朝天宮" style="left:8%;top:24.4536%;width:24%;height:8.8922%"></a><a href="https://www.wude.org.tw" target="_blank" rel="noopener" title="北港武德宮" aria-label="北港武德宮" style="left:8%;top:33.3459%;width:24%;height:8.8922%"></a><a href="https://www.nkstemple.org.tw" target="_blank" rel="noopener" title="南鯤鯓代天府" aria-label="南鯤鯓代天府" style="left:8%;top:42.2381%;width:24%;height:7.7807%"></a><a href="https://www.taipingmatzu.org.tw" target="_blank" rel="noopener" title="西螺福興宮" aria-label="西螺福興宮" style="left:62%;top:15.5614%;width:34%;height:8.8922%"></a><a href="https://www.fgs.org.tw" target="_blank" rel="noopener" title="佛光山" aria-label="佛光山" style="left:62%;top:24.4536%;width:34%;height:8.8922%"></a><a href="https://www.5god.com.tw" target="_blank" rel="noopener" title="麻豆代天府" aria-label="麻豆代天府" style="left:62%;top:33.3459%;width:34%;height:8.8922%"></a><a href="https://www.fuantmp.org" target="_blank" rel="noopener" title="車城福安宮" aria-label="車城福安宮" style="left:62%;top:42.2381%;width:34%;height:7.7807%"></a><a href="https://www.ht.org.tw" target="_blank" rel="noopener" title="台北行天宮" aria-label="台北行天宮" style="left:8%;top:56.6880%;width:23%;height:8.8922%"></a><a href="https://www.lungshan.org.tw" target="_blank" rel="noopener" title="艋舺龍山寺" aria-label="艋舺龍山寺" style="left:8%;top:65.5802%;width:23%;height:8.8922%"></a><a href="https://www.matsu.org.tw" target="_blank" rel="noopener" title="北港朝天宮" aria-label="北港朝天宮" style="left:8%;top:74.4724%;width:23%;height:8.8922%"></a><a href="https://www.dajiamazu.org.tw" target="_blank" rel="noopener" title="大甲鎮瀾宮" aria-label="大甲鎮瀾宮" style="left:8%;top:83.3647%;width:23%;height:10.0038%"></a><a href="https://www.xn--6kry7q182a.tw" target="_blank" rel="noopener" title="竹山紫南宮" aria-label="竹山紫南宮" style="left:63%;top:56.6880%;width:33%;height:8.8922%"></a><a href="https://www.fuantmp.org" target="_blank" rel="noopener" title="車城福安宮" aria-label="車城福安宮" style="left:63%;top:65.5802%;width:33%;height:8.8922%"></a><a href="https://www.baishatunmazu.org.tw" target="_blank" rel="noopener" title="白沙屯拱天宮" aria-label="白沙屯拱天宮" style="left:63%;top:74.4724%;width:33%;height:8.8922%"></a><a href="https://www.nkstemple.org.tw" target="_blank" rel="noopener" title="南鯤鯓代天府" aria-label="南鯤鯓代天府" style="left:63%;top:83.3647%;width:33%;height:10.0038%"></a>
+<button class="music" id="musicBtn" type="button">🎵 播放音樂</button>
+<audio id="bgm" loop preload="none">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+<div class="wrap" id="wrap">
+  <img class="map" src="preview.png" alt="全國熱門宮廟互動式Q版地圖">
 </div>
+<div class="tip" id="tip"><strong id="tipName"></strong><span id="tipDeity"></span><br>點擊前往官方網站</div>
+<script>
+const items = [{"name": "正統鹿耳門聖母廟", "deity": "天上聖母", "url": "https://luermen.org.tw", "l": 8, "t": 15.56, "w": 24, "h": 8.89}, {"name": "北港朝天宮", "deity": "天上聖母", "url": "https://www.matsu.org.tw", "l": 8, "t": 24.44, "w": 24, "h": 8.89}, {"name": "北港武德宮", "deity": "武財神（玄壇元帥）", "url": "https://www.wude.org.tw", "l": 8, "t": 33.33, "w": 24, "h": 8.89}, {"name": "南鯤鯓代天府", "deity": "五府千歲", "url": "https://www.nkstemple.org.tw", "l": 8, "t": 42.22, "w": 24, "h": 7.78}, {"name": "西螺福興宮", "deity": "天上聖母", "url": "https://www.taipingmatzu.org.tw", "l": 62, "t": 15.56, "w": 34, "h": 8.89}, {"name": "佛光山", "deity": "佛教聖地", "url": "https://www.fgs.org.tw", "l": 62, "t": 24.44, "w": 34, "h": 8.89}, {"name": "麻豆代天府", "deity": "五府千歲", "url": "https://www.5god.com.tw", "l": 62, "t": 33.33, "w": 34, "h": 8.89}, {"name": "車城福安宮", "deity": "福德正神", "url": "https://www.fuantmp.org", "l": 62, "t": 42.22, "w": 34, "h": 7.78}, {"name": "台北行天宮", "deity": "關聖帝君", "url": "https://www.ht.org.tw", "l": 8, "t": 56.67, "w": 23, "h": 8.89}, {"name": "艋舺龍山寺", "deity": "觀世音菩薩", "url": "https://www.lungshan.org.tw", "l": 8, "t": 65.56, "w": 23, "h": 8.89}, {"name": "北港朝天宮", "deity": "天上聖母", "url": "https://www.matsu.org.tw", "l": 8, "t": 74.44, "w": 23, "h": 8.89}, {"name": "大甲鎮瀾宮", "deity": "天上聖母", "url": "https://www.dajiamazu.org.tw", "l": 8, "t": 83.33, "w": 23, "h": 10.0}, {"name": "竹山紫南宮", "deity": "福德正神", "url": "https://www.xn--6kry7q182a.tw", "l": 63, "t": 56.67, "w": 33, "h": 8.89}, {"name": "車城福安宮", "deity": "福德正神", "url": "https://www.fuantmp.org", "l": 63, "t": 65.56, "w": 33, "h": 8.89}, {"name": "白沙屯拱天宮", "deity": "天上聖母", "url": "https://www.baishatunmazu.org.tw", "l": 63, "t": 74.44, "w": 33, "h": 8.89}, {"name": "南鯤鯓代天府", "deity": "五府千歲", "url": "https://www.nkstemple.org.tw", "l": 63, "t": 83.33, "w": 33, "h": 10.0}];
+const wrap = document.getElementById('wrap');
+const tip = document.getElementById('tip');
+const tipName = document.getElementById('tipName');
+const tipDeity = document.getElementById('tipDeity');
+const bgm = document.getElementById('bgm');
+const musicBtn = document.getElementById('musicBtn');
+
+items.forEach(item => {
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'hotspot';
+  b.setAttribute('aria-label', item.name + '，前往官方網站');
+  Object.assign(b.style, {
+    left:item.l+'%', top:item.t+'%', width:item.w+'%', height:item.h+'%'
+  });
+  b.addEventListener('mouseenter', e => {
+    tipName.textContent = item.name;
+    tipDeity.textContent = '主神：' + item.deity;
+    tip.style.display = 'block';
+  });
+  b.addEventListener('mousemove', e => {
+    const x = Math.min(e.clientX + 14, innerWidth - 285);
+    const y = Math.min(e.clientY + 14, innerHeight - 120);
+    tip.style.left = Math.max(8, x) + 'px';
+    tip.style.top = Math.max(8, y) + 'px';
+  });
+  b.addEventListener('mouseleave', () => tip.style.display='none');
+  b.addEventListener('click', async () => {
+    b.classList.remove('flash');
+    void b.offsetWidth;
+    b.classList.add('flash');
+
+    if (bgm.paused) {
+      try {
+        bgm.volume = 0.28;
+        await bgm.play();
+        musicBtn.textContent = '⏸ 暫停音樂';
+      } catch (e) {
+        musicBtn.textContent = '🎵 播放音樂';
+      }
+    }
+
+    setTimeout(() => window.open(item.url, '_blank', 'noopener'), 180);
+  });
+  wrap.appendChild(b);
+});
+
+musicBtn.addEventListener('click', async () => {
+  try {
+    if (bgm.paused) {
+      bgm.volume = 0.28;
+      await bgm.play();
+      musicBtn.textContent = '⏸ 暫停音樂';
+    } else {
+      bgm.pause();
+      musicBtn.textContent = '🎵 播放音樂';
+    }
+  } catch (e) {
+    musicBtn.textContent = '請再點一次播放';
+  }
+});
+</script>
+<!-- 莊惠椒整理｜2026-07-12 -->
 </body>
 </html>
