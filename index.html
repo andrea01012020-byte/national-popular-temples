@@ -6,21 +6,45 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://andrea01012020-byte.github.io/national-popular-temples/">
 <meta property="og:image" content="https://andrea01012020-byte.github.io/national-popular-temples/preview.png">
-<style>*{box-sizing:border-box}html,body{margin:0;background:#eee}.wrap{position:relative;max-width:900px;width:100%;margin:auto}img{display:block;width:100%;height:auto}.hotspot{position:absolute;border:0;background:transparent;border-radius:14px;cursor:pointer}.hotspot:active{background:rgba(255,215,0,.35)}</style>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#eee}
+.wrap{position:relative;max-width:900px;width:100%;margin:auto}
+img{display:block;width:100%;height:auto}
+.hotspot{position:absolute;border:0;background:transparent;border-radius:14px;cursor:pointer}
+.hotspot:active{background:rgba(255,215,0,.35)}
+.hotspot.flash{animation:flash .5s ease}
+@keyframes flash{
+  0%{background:rgba(255,215,0,.08)}
+  50%{background:rgba(255,215,0,.55);box-shadow:0 0 26px #ffd700}
+  100%{background:transparent}
+}
+</style>
 </head><body>
-<audio id="bgm" loop preload="none"><source src="guzheng_music.mp3" type="audio/mpeg"></audio>
+<audio id="bgm" loop preload="none"><source src="music.mp3" type="audio/mpeg"></audio>
 <div class="wrap" id="wrap"><img src="preview.png" alt="全國熱門宮廟互動式Q版地圖"></div>
 <script>
 const items=[{"name": "正統鹿耳門聖母廟", "url": "https://luermen.org.tw", "l": 2.5, "t": 17.5, "w": 35, "h": 10.5}, {"name": "北港朝天宮", "url": "https://www.matsu.org.tw", "l": 2.5, "t": 28.1, "w": 35, "h": 10.5}, {"name": "北港武德宮", "url": "https://www.wude.org.tw", "l": 2.5, "t": 38.8, "w": 35, "h": 10.4}, {"name": "南鯤鯓代天府", "url": "https://www.nkstemple.org.tw", "l": 2.5, "t": 49.3, "w": 35, "h": 10.5}, {"name": "西螺福興宮", "url": "https://www.taipingmatzu.org.tw", "l": 62.2, "t": 17.5, "w": 35, "h": 10.5}, {"name": "佛光山", "url": "https://www.fgs.org.tw", "l": 62.2, "t": 28.1, "w": 35, "h": 10.5}, {"name": "麻豆代天府", "url": "https://www.5god.com.tw", "l": 62.2, "t": 38.8, "w": 35, "h": 10.4}, {"name": "車城福安宮", "url": "https://www.fuantmp.org", "l": 62.2, "t": 49.3, "w": 35, "h": 10.5}, {"name": "台北行天宮", "url": "https://www.ht.org.tw", "l": 2.5, "t": 66.0, "w": 35, "h": 8.2}, {"name": "艋舺龍山寺", "url": "https://www.lungshan.org.tw", "l": 2.5, "t": 74.2, "w": 35, "h": 8.2}, {"name": "北港朝天宮", "url": "https://www.matsu.org.tw", "l": 2.5, "t": 82.4, "w": 35, "h": 8.2}, {"name": "大甲鎮瀾宮", "url": "https://www.dajiamazu.org.tw", "l": 2.5, "t": 90.6, "w": 35, "h": 8.8}, {"name": "竹山紫南宮", "url": "https://www.xn--6kry7q182a.tw", "l": 62.2, "t": 66.0, "w": 35, "h": 8.2}, {"name": "車城福安宮", "url": "https://www.fuantmp.org", "l": 62.2, "t": 74.2, "w": 35, "h": 8.2}, {"name": "白沙屯拱天宮", "url": "https://www.baishatunmazu.org.tw", "l": 62.2, "t": 82.4, "w": 35, "h": 8.2}, {"name": "南鯤鯓代天府", "url": "https://www.nkstemple.org.tw", "l": 62.2, "t": 90.6, "w": 35, "h": 8.8}];
 const wrap=document.getElementById('wrap'), bgm=document.getElementById('bgm');
 let musicStarted=false;
 items.forEach(item=>{
- const b=document.createElement('button'); b.className='hotspot'; b.type='button';
+ const b=document.createElement('button');
+ b.className='hotspot';
+ b.type='button';
  Object.assign(b.style,{left:item.l+'%',top:item.t+'%',width:item.w+'%',height:item.h+'%'});
  b.setAttribute('aria-label',item.name+'，前往官方網站');
  b.addEventListener('click',async()=>{
-   if(!musicStarted){try{bgm.volume=.28;await bgm.play();musicStarted=true}catch(e){}}
-   setTimeout(()=>window.open(item.url,'_blank','noopener'),120);
+   b.classList.remove('flash');
+   void b.offsetWidth;
+   b.classList.add('flash');
+   if(!musicStarted){
+     try{
+       bgm.volume=.28;
+       await bgm.play();
+       musicStarted=true;
+     }catch(e){}
+   }
+   setTimeout(()=>window.open(item.url,'_blank','noopener'),180);
  });
  wrap.appendChild(b);
 });
