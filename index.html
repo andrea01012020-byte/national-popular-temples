@@ -14,13 +14,22 @@
 html,body{margin:0;background:#eee}
 .wrap{position:relative;max-width:900px;width:100%;margin:auto}
 img{display:block;width:100%;height:auto}
-.hotspot{position:absolute;border:0;background:transparent;border-radius:14px;cursor:pointer}
-.hotspot:active{background:rgba(255,215,0,.35)}
-.hotspot.flash{animation:flash .5s ease}
+.hotspot{
+  position:absolute;
+  border:0;
+  background:transparent;
+  border-radius:8px;
+  cursor:pointer;
+  padding:0;
+  margin:0;
+  touch-action:manipulation;
+}
+.hotspot:focus-visible{outline:2px solid #d7a900}
+.hotspot.flash{animation:flash .22s ease}
 @keyframes flash{
-  0%{background:rgba(255,215,0,.08)}
-  50%{background:rgba(255,215,0,.55);box-shadow:0 0 26px #ffd700}
-  100%{background:transparent}
+  0%{outline:0 solid rgba(215,169,0,0)}
+  50%{outline:2px solid rgba(215,169,0,.9)}
+  100%{outline:0 solid rgba(215,169,0,0)}
 }
 </style>
 </head>
@@ -28,20 +37,27 @@ img{display:block;width:100%;height:auto}
 <audio id="bgm" loop preload="none"><source src="music.mp3" type="audio/mpeg"></audio>
 <div class="wrap" id="wrap">
   <img src="preview.png" alt="全國熱門宮廟互動式Q版地圖">
-  <button class="hotspot" type="button" aria-label="正統鹿耳門聖母廟，前往官方網站" data-url="https://luermen.org.tw" style="left:2.5%;top:18.9299%;width:35%;height:11.3579%"></button><button class="hotspot" type="button" aria-label="北港朝天宮，前往官方網站" data-url="https://www.matsu.org.tw" style="left:2.5%;top:30.3960%;width:35%;height:11.3579%"></button><button class="hotspot" type="button" aria-label="北港武德宮，前往官方網站" data-url="https://www.wude.org.tw" style="left:2.5%;top:41.9702%;width:35%;height:11.2498%"></button><button class="hotspot" type="button" aria-label="南鯤鯓代天府，前往官方網站" data-url="https://www.nkstemple.org.tw" style="left:2.5%;top:53.3282%;width:35%;height:11.3579%"></button><button class="hotspot" type="button" aria-label="西螺福興宮，前往官方網站" data-url="https://www.taipingmatzu.org.tw" style="left:62.2%;top:18.9299%;width:35%;height:11.3579%"></button><button class="hotspot" type="button" aria-label="佛光山，前往官方網站" data-url="https://www.fgs.org.tw" style="left:62.2%;top:30.3960%;width:35%;height:11.3579%"></button><button class="hotspot" type="button" aria-label="麻豆代天府，前往官方網站" data-url="https://www.5god.com.tw" style="left:62.2%;top:41.9702%;width:35%;height:11.2498%"></button><button class="hotspot" type="button" aria-label="車城福安宮，前往官方網站" data-url="https://www.fuantmp.org" style="left:62.2%;top:53.3282%;width:35%;height:11.3579%"></button><button class="hotspot" type="button" aria-label="台北行天宮，前往官方網站" data-url="https://www.ht.org.tw" style="left:2.5%;top:71.3927%;width:35%;height:8.8700%"></button><button class="hotspot" type="button" aria-label="艋舺龍山寺，前往官方網站" data-url="https://www.lungshan.org.tw" style="left:2.5%;top:80.2627%;width:35%;height:8.8700%"></button><button class="hotspot" type="button" aria-label="北港朝天宮，前往官方網站" data-url="https://www.matsu.org.tw" style="left:2.5%;top:89.1327%;width:35%;height:8.8700%"></button><button class="hotspot" type="button" aria-label="大甲鎮瀾宮，前往官方網站" data-url="https://www.dajiamazu.org.tw" style="left:2.5%;top:98.0027%;width:35%;height:9.5190%"></button><button class="hotspot" type="button" aria-label="竹山紫南宮，前往官方網站" data-url="https://www.xn--6kry7q182a.tw" style="left:62.2%;top:71.3927%;width:35%;height:8.8700%"></button><button class="hotspot" type="button" aria-label="車城福安宮，前往官方網站" data-url="https://www.fuantmp.org" style="left:62.2%;top:80.2627%;width:35%;height:8.8700%"></button><button class="hotspot" type="button" aria-label="白沙屯拱天宮，前往官方網站" data-url="https://www.baishatunmazu.org.tw" style="left:62.2%;top:89.1327%;width:35%;height:8.8700%"></button><button class="hotspot" type="button" aria-label="南鯤鯓代天府，前往官方網站" data-url="https://www.nkstemple.org.tw" style="left:62.2%;top:98.0027%;width:35%;height:9.5190%"></button>
+  <button class="hotspot" type="button" aria-label="正統鹿耳門聖母廟，前往官方網站" data-url="https://luermen.org.tw" style="left:0.9019%;top:15.4268%;width:33.0327%;height:8.2927%"></button><button class="hotspot" type="button" aria-label="北港朝天宮，前往官方網站" data-url="https://www.matsu.org.tw" style="left:0.9019%;top:23.8415%;width:33.0327%;height:8.3537%"></button><button class="hotspot" type="button" aria-label="北港武德宮，前往官方網站" data-url="https://www.wude.org.tw" style="left:0.9019%;top:32.3171%;width:33.0327%;height:8.3537%"></button><button class="hotspot" type="button" aria-label="南鯤鯓代天府，前往官方網站" data-url="https://www.nkstemple.org.tw" style="left:0.9019%;top:40.7317%;width:33.0327%;height:8.3537%"></button><button class="hotspot" type="button" aria-label="西螺福興宮，前往官方網站" data-url="https://www.taipingmatzu.org.tw" style="left:61.7813%;top:15.4268%;width:34.3856%;height:8.2927%"></button><button class="hotspot" type="button" aria-label="佛光山，前往官方網站" data-url="https://www.fgs.org.tw" style="left:61.7813%;top:23.8415%;width:34.3856%;height:8.3537%"></button><button class="hotspot" type="button" aria-label="麻豆代天府，前往官方網站" data-url="https://www.5god.com.tw" style="left:61.7813%;top:32.3171%;width:34.3856%;height:8.3537%"></button><button class="hotspot" type="button" aria-label="車城福安宮，前往官方網站" data-url="https://www.fuantmp.org" style="left:61.7813%;top:40.7317%;width:34.3856%;height:8.3537%"></button><button class="hotspot" type="button" aria-label="台北行天宮，前往官方網站" data-url="https://www.ht.org.tw" style="left:0.9019%;top:55.4268%;width:32.2435%;height:8.7195%"></button><button class="hotspot" type="button" aria-label="艋舺龍山寺，前往官方網站" data-url="https://www.lungshan.org.tw" style="left:0.9019%;top:64.2683%;width:32.2435%;height:8.6585%"></button><button class="hotspot" type="button" aria-label="北港朝天宮，前往官方網站" data-url="https://www.matsu.org.tw" style="left:0.9019%;top:73.0488%;width:32.2435%;height:8.7195%"></button><button class="hotspot" type="button" aria-label="大甲鎮瀾宮，前往官方網站" data-url="https://www.dajiamazu.org.tw" style="left:0.9019%;top:81.8902%;width:32.2435%;height:8.6585%"></button><button class="hotspot" type="button" aria-label="竹山紫南宮，前往官方網站" data-url="https://www.xn--6kry7q182a.tw" style="left:62.1195%;top:55.4268%;width:34.0474%;height:8.7195%"></button><button class="hotspot" type="button" aria-label="車城福安宮，前往官方網站" data-url="https://www.fuantmp.org" style="left:62.1195%;top:64.2683%;width:34.0474%;height:8.6585%"></button><button class="hotspot" type="button" aria-label="白沙屯拱天宮，前往官方網站" data-url="https://www.baishatunmazu.org.tw" style="left:62.1195%;top:73.0488%;width:34.0474%;height:8.7195%"></button><button class="hotspot" type="button" aria-label="南鯤鯓代天府，前往官方網站" data-url="https://www.nkstemple.org.tw" style="left:62.1195%;top:81.8902%;width:34.0474%;height:8.6585%"></button>
 </div>
 <script>
 const bgm=document.getElementById('bgm');
 let musicStarted=false;
-document.querySelectorAll('.hotspot').forEach(b=>{
-  b.addEventListener('click',async()=>{
-    b.classList.remove('flash');
-    void b.offsetWidth;
-    b.classList.add('flash');
+document.querySelectorAll('.hotspot').forEach(button=>{
+  button.addEventListener('click',async()=>{
+    button.classList.remove('flash');
+    void button.offsetWidth;
+    button.classList.add('flash');
+
     if(!musicStarted){
-      try{bgm.volume=.28;await bgm.play();musicStarted=true}catch(e){}
+      try{
+        bgm.volume=.28;
+        await bgm.play();
+        musicStarted=true;
+      }catch(e){}
     }
-    setTimeout(()=>window.open(b.dataset.url,'_blank','noopener'),180);
+
+    const url=button.dataset.url;
+    setTimeout(()=>window.open(url,'_blank','noopener'),80);
   });
 });
 </script>
