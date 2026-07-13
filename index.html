@@ -1,4 +1,7 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
 <title>全國熱門宮廟</title>
 <meta property="og:title" content="全國熱門宮廟">
@@ -20,32 +23,28 @@ img{display:block;width:100%;height:auto}
   100%{background:transparent}
 }
 </style>
-</head><body>
+</head>
+<body>
 <audio id="bgm" loop preload="none"><source src="music.mp3" type="audio/mpeg"></audio>
-<div class="wrap" id="wrap"><img src="preview.png" alt="全國熱門宮廟互動式Q版地圖"></div>
+<div class="wrap" id="wrap">
+  <img src="preview.png" alt="全國熱門宮廟互動式Q版地圖">
+  <button class="hotspot" type="button" aria-label="正統鹿耳門聖母廟，前往官方網站" data-url="https://luermen.org.tw" style="left:2.5%;top:18.9299%;width:35%;height:11.3579%"></button><button class="hotspot" type="button" aria-label="北港朝天宮，前往官方網站" data-url="https://www.matsu.org.tw" style="left:2.5%;top:30.3960%;width:35%;height:11.3579%"></button><button class="hotspot" type="button" aria-label="北港武德宮，前往官方網站" data-url="https://www.wude.org.tw" style="left:2.5%;top:41.9702%;width:35%;height:11.2498%"></button><button class="hotspot" type="button" aria-label="南鯤鯓代天府，前往官方網站" data-url="https://www.nkstemple.org.tw" style="left:2.5%;top:53.3282%;width:35%;height:11.3579%"></button><button class="hotspot" type="button" aria-label="西螺福興宮，前往官方網站" data-url="https://www.taipingmatzu.org.tw" style="left:62.2%;top:18.9299%;width:35%;height:11.3579%"></button><button class="hotspot" type="button" aria-label="佛光山，前往官方網站" data-url="https://www.fgs.org.tw" style="left:62.2%;top:30.3960%;width:35%;height:11.3579%"></button><button class="hotspot" type="button" aria-label="麻豆代天府，前往官方網站" data-url="https://www.5god.com.tw" style="left:62.2%;top:41.9702%;width:35%;height:11.2498%"></button><button class="hotspot" type="button" aria-label="車城福安宮，前往官方網站" data-url="https://www.fuantmp.org" style="left:62.2%;top:53.3282%;width:35%;height:11.3579%"></button><button class="hotspot" type="button" aria-label="台北行天宮，前往官方網站" data-url="https://www.ht.org.tw" style="left:2.5%;top:71.3927%;width:35%;height:8.8700%"></button><button class="hotspot" type="button" aria-label="艋舺龍山寺，前往官方網站" data-url="https://www.lungshan.org.tw" style="left:2.5%;top:80.2627%;width:35%;height:8.8700%"></button><button class="hotspot" type="button" aria-label="北港朝天宮，前往官方網站" data-url="https://www.matsu.org.tw" style="left:2.5%;top:89.1327%;width:35%;height:8.8700%"></button><button class="hotspot" type="button" aria-label="大甲鎮瀾宮，前往官方網站" data-url="https://www.dajiamazu.org.tw" style="left:2.5%;top:98.0027%;width:35%;height:9.5190%"></button><button class="hotspot" type="button" aria-label="竹山紫南宮，前往官方網站" data-url="https://www.xn--6kry7q182a.tw" style="left:62.2%;top:71.3927%;width:35%;height:8.8700%"></button><button class="hotspot" type="button" aria-label="車城福安宮，前往官方網站" data-url="https://www.fuantmp.org" style="left:62.2%;top:80.2627%;width:35%;height:8.8700%"></button><button class="hotspot" type="button" aria-label="白沙屯拱天宮，前往官方網站" data-url="https://www.baishatunmazu.org.tw" style="left:62.2%;top:89.1327%;width:35%;height:8.8700%"></button><button class="hotspot" type="button" aria-label="南鯤鯓代天府，前往官方網站" data-url="https://www.nkstemple.org.tw" style="left:62.2%;top:98.0027%;width:35%;height:9.5190%"></button>
+</div>
 <script>
-const items=[{"name": "正統鹿耳門聖母廟", "url": "https://luermen.org.tw", "l": 2.5, "t": 17.5, "w": 35, "h": 10.5}, {"name": "北港朝天宮", "url": "https://www.matsu.org.tw", "l": 2.5, "t": 28.1, "w": 35, "h": 10.5}, {"name": "北港武德宮", "url": "https://www.wude.org.tw", "l": 2.5, "t": 38.8, "w": 35, "h": 10.4}, {"name": "南鯤鯓代天府", "url": "https://www.nkstemple.org.tw", "l": 2.5, "t": 49.3, "w": 35, "h": 10.5}, {"name": "西螺福興宮", "url": "https://www.taipingmatzu.org.tw", "l": 62.2, "t": 17.5, "w": 35, "h": 10.5}, {"name": "佛光山", "url": "https://www.fgs.org.tw", "l": 62.2, "t": 28.1, "w": 35, "h": 10.5}, {"name": "麻豆代天府", "url": "https://www.5god.com.tw", "l": 62.2, "t": 38.8, "w": 35, "h": 10.4}, {"name": "車城福安宮", "url": "https://www.fuantmp.org", "l": 62.2, "t": 49.3, "w": 35, "h": 10.5}, {"name": "台北行天宮", "url": "https://www.ht.org.tw", "l": 2.5, "t": 66.0, "w": 35, "h": 8.2}, {"name": "艋舺龍山寺", "url": "https://www.lungshan.org.tw", "l": 2.5, "t": 74.2, "w": 35, "h": 8.2}, {"name": "北港朝天宮", "url": "https://www.matsu.org.tw", "l": 2.5, "t": 82.4, "w": 35, "h": 8.2}, {"name": "大甲鎮瀾宮", "url": "https://www.dajiamazu.org.tw", "l": 2.5, "t": 90.6, "w": 35, "h": 8.8}, {"name": "竹山紫南宮", "url": "https://www.xn--6kry7q182a.tw", "l": 62.2, "t": 66.0, "w": 35, "h": 8.2}, {"name": "車城福安宮", "url": "https://www.fuantmp.org", "l": 62.2, "t": 74.2, "w": 35, "h": 8.2}, {"name": "白沙屯拱天宮", "url": "https://www.baishatunmazu.org.tw", "l": 62.2, "t": 82.4, "w": 35, "h": 8.2}, {"name": "南鯤鯓代天府", "url": "https://www.nkstemple.org.tw", "l": 62.2, "t": 90.6, "w": 35, "h": 8.8}];
-const wrap=document.getElementById('wrap'), bgm=document.getElementById('bgm');
+const bgm=document.getElementById('bgm');
 let musicStarted=false;
-items.forEach(item=>{
- const b=document.createElement('button');
- b.className='hotspot';
- b.type='button';
- Object.assign(b.style,{left:item.l+'%',top:item.t+'%',width:item.w+'%',height:item.h+'%'});
- b.setAttribute('aria-label',item.name+'，前往官方網站');
- b.addEventListener('click',async()=>{
-   b.classList.remove('flash');
-   void b.offsetWidth;
-   b.classList.add('flash');
-   if(!musicStarted){
-     try{
-       bgm.volume=.28;
-       await bgm.play();
-       musicStarted=true;
-     }catch(e){}
-   }
-   setTimeout(()=>window.open(item.url,'_blank','noopener'),180);
- });
- wrap.appendChild(b);
+document.querySelectorAll('.hotspot').forEach(b=>{
+  b.addEventListener('click',async()=>{
+    b.classList.remove('flash');
+    void b.offsetWidth;
+    b.classList.add('flash');
+    if(!musicStarted){
+      try{bgm.volume=.28;await bgm.play();musicStarted=true}catch(e){}
+    }
+    setTimeout(()=>window.open(b.dataset.url,'_blank','noopener'),180);
+  });
 });
-</script><!-- 莊惠椒整理｜2026-07-13 --></body></html>
+</script>
+<!-- 莊惠椒整理｜2026-07-13 -->
+</body>
+</html>
